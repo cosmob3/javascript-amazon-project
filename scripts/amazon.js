@@ -1,5 +1,7 @@
+// Module
+import { cart as myCart } from "../data/cart.js";
+
 let productsHTML = "";
-let cartQuantity = 0;
 let addedTimeOut;
 
 products.forEach((product) => {
@@ -67,7 +69,7 @@ function addToCart(productId, quantity) {
   //CHECK IF PRODUCT ALREADY EXISTS IN CART
   let matchingItem;
 
-  cart.forEach((item) => {
+  myCart.forEach((item) => {
     if (productId === item.productId) {
       matchingItem = item;
     }
@@ -77,7 +79,7 @@ function addToCart(productId, quantity) {
   if (matchingItem) {
     matchingItem.quantity += quantity;
   } else {
-    cart.push({ productId, quantity });
+    myCart.push({ productId, quantity });
   }
   updateCartQuantity();
   //const selectorQuantity = quantitySelector.value;
