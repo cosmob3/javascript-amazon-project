@@ -1,5 +1,6 @@
 // Module
 import { cart as myCart } from "../data/cart.js";
+import { products } from "../data/products.js";
 
 let productsHTML = "";
 let addedTimeOut;
