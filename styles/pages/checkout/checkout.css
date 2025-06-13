@@ -164,8 +164,11 @@ input {
 }
 
 .delivery-option-input {
-  margin-left: 0px;
+  margin-left: 5px;
   cursor: pointer;
+}
+.delivery-option-fix {
+  margin-left: 15px;
 }
 
 .delivery-option-date {
