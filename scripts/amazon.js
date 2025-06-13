@@ -1,15 +1,14 @@
 // Module
-import { addToCart } from "../data/cart.js";
+import { addToCart, updateCartQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
 let productsHTML = "";
 let addedTimeOut;
+updateCartQuantity();
 
 products.forEach((product) => {
-  productsHTML =
-    productsHTML +
-    `<div class="product-container">
+  productsHTML += `<div class="product-container">
           <div class="product-image-container">
             <img
               class="product-image"
