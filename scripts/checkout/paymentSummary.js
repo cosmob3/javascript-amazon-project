@@ -24,6 +24,7 @@ export function renderPaymentSummary() {
   let paymentSummaryHTML = "";
 
   const totalQuantity = calculateCartQuantity();
+  console.log(totalQuantity);
 
   paymentSummaryHTML += ` 
         
