@@ -83,7 +83,7 @@ function renderProductPage() {
 
       addedTimeOut = setTimeout(() => {
         addedMessage.classList.remove("added-to-cart-visible");
-      }, 2000);
+      }, 1000);
 
       const quantitySelector = document.querySelector(
         `.js-quantity-selector-${productId}`
@@ -97,8 +97,9 @@ function renderProductPage() {
     });
   });
 }
+
 function updateCartQuantity() {
   const totalQuantity = calculateCartQuantity();
-
-  document.querySelector(".js-cart-quantity").innerHTML = Number(totalQuantity);
+  console.log(totalQuantity);
+  document.querySelector(".js-cart-quantity").innerHTML = totalQuantity;
 }
