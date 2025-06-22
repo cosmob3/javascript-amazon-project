@@ -14,7 +14,7 @@ const defaultCart = [
 */
 export let cart = [];
 
-//loadFromStorage();
+loadFromStorage();
 
 export function loadFromStorage() {
   const cartData = localStorage.getItem("cart");
