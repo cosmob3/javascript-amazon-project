@@ -24,5 +24,7 @@ describe("test suite: renderOrderSummary", () => {
     loadFromStorage();
 
     renderOrderSummary();
+
+    // expect(document.querySelectorAll(".js-item-container").length).toEqual(2);
   });
 });
