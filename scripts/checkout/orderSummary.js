@@ -199,8 +199,8 @@ export function renderOrderSummary() {
           ).innerHTML = ` ${quantity}`;
 
           updateQuantity(productId, quantity);
-
           updateCart();
+          renderPaymentSummary();
         }
       }
     });
