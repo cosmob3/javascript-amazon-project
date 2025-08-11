@@ -1,5 +1,5 @@
 import { calculateCartQuantity, cart } from "../../data/cart.js";
-import { getProduct } from "../../data/products.js";
+import { products, getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
 
@@ -9,8 +9,10 @@ export function renderPaymentSummary() {
 
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
+    console.log(productId);
 
     const product = getProduct(productId);
+    console.log(product);
 
     productPriceCents += product.priceCents * cartItem.quantity;
 

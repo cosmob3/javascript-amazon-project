@@ -5,7 +5,7 @@ import {
   updateQuantity,
   updateDeliveryOption,
 } from "../../data/cart.js";
-import { products, getProduct } from "../../data/products.js";
+import { products, getProduct, loadProducts } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import {
   deliveryOptions,
@@ -21,11 +21,14 @@ export function renderOrderSummary() {
 
   let cartSummaryHTML = "";
 
+  const happyBirth = "HELLO POOKIE";
+  console.log(happyBirth);
+
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-
+    console.log(productId);
     const matchingProduct = getProduct(productId);
-
+    //console.log(matchingProduct);
     const deliveryOptionId = cartItem.deliveryOptionId;
 
     const deliveryOption = getDeliveryOption(deliveryOptionId);

@@ -1,8 +1,32 @@
 import { formatCurrency } from "../scripts/utils/money.js";
 
+export let products = [];
+
+export function loadProducts(fun) {
+  const xhr = new XMLHttpRequest();
+
+  //Add event listener for request and what we want to happen to the information.
+  xhr.addEventListener("load", () => {
+    products = JSON.parse(xhr.response).map((productDetails) => {
+      if (productDetails.type === "clothing") {
+        return new Clothing(productDetails);
+      }
+
+      return new Product(productDetails);
+    });
+
+    fun();
+    console.log(JSON.parse(xhr.response));
+  });
+  //then open a request, select action and the url
+  xhr.open("GET", "https://supersimplebackend.dev/products");
+
+  //send request
+  xhr.send();
+}
+
 export function getProduct(productId) {
   let matchingProduct;
-
   products.forEach((product) => {
     if (product.id === productId) {
       matchingProduct = product;
@@ -10,6 +34,7 @@ export function getProduct(productId) {
   });
   return matchingProduct;
 }
+console.log(getProduct("3ebe75dc-64d2-4137-8860-1f5a963e534b"));
 
 class Product {
   constructor(productDetails) {
@@ -65,6 +90,7 @@ const object3 = {
 object3.method(); //undefined
 */
 
+/*
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -564,3 +590,4 @@ export const products = [
   }
   return new Product(productDetails);
 });
+*/

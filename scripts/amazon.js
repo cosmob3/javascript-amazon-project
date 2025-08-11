@@ -1,9 +1,8 @@
 // Module
 import { addToCart, calculateCartQuantity } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products, loadProducts } from "../data/products.js";
 
-renderProductPage();
-updateCartQuantity();
+loadProducts(renderProductPage);
 
 function renderProductPage() {
   let productsHTML = "";
@@ -96,9 +95,12 @@ function renderProductPage() {
     });
   });
 }
+renderProductPage();
 
 function updateCartQuantity() {
   const totalQuantity = calculateCartQuantity();
   console.log(totalQuantity);
   document.querySelector(".js-cart-quantity").innerHTML = totalQuantity;
 }
+
+updateCartQuantity();
