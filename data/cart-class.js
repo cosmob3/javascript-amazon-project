@@ -1,15 +1,17 @@
 class Cart {
+  // **public property**
   cartItems;
-  localStorageKey;
+  // the '#' makes the **property private** meaning that it can only be accessed from within the class. There for someone else cannot change it by messing around
+  #localStorageKey;
 
   //Constructor is used as a setup for whatever else needs to run => In this case checking any localStorageKey to load up appropriate cart
   // Should not return() anything
   constructor(localStorageKey) {
-    this.localStorageKey = localStorageKey;
-    this.loadFromStorage();
+    this.#localStorageKey = localStorageKey;
+    this.#loadFromStorage();
   }
-  loadFromStorage() {
-    this.cartItems = localStorage.getItem(this.localStorageKey);
+  #loadFromStorage() {
+    this.cartItems = localStorage.getItem(this.#localStorageKey);
 
     if (!this.cartItems) {
       this.cartItems = [
@@ -27,7 +29,7 @@ class Cart {
     }
   }
   saveToStorage() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
   }
 
   addToCart(productId, quantity) {
