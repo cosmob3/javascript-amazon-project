@@ -26,9 +26,25 @@ class Product {
   getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
+  extraInfoHTML() {
+    return ``;
+  }
 }
 
 // By using '.map' we are looping thru the array and running a function on it and returns products as classes
+
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML() {
+    return `<a href="${this.sizeChartLink}" target="_blank">Size chart</a>`;
+  }
+}
 
 export const products = [
   {
@@ -524,5 +540,8 @@ export const products = [
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
 ].map((productDetails) => {
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
