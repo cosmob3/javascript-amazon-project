@@ -1,6 +1,6 @@
 import { formatCurrency } from "../scripts/utils/money.js";
 
-export function getProduct(productId) {
+export function getHoursProduct(productId) {
   let matchingProduct;
 
   products.forEach((product) => {
@@ -45,6 +45,25 @@ class Clothing extends Product {
     return `<a href="${this.sizeChartLink}" target="_blank">Size chart</a>`;
   }
 }
+
+/*
+
+function logThis() {
+  console.log(this); //regular functions change this to undefined
+}
+logThis(); // console: undefined
+logThis.call("Hello"); // console: Hello
+
+this; //undefined
+
+/* Arrow functions do not change the value of`This` therefore it's undefined outside the  function so its undefined inside the function 
+const object3 = { 
+  method: () => { 
+  console.log(this);
+  }                                            
+};
+object3.method(); //undefined
+*/
 
 export const products = [
   {
