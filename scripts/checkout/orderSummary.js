@@ -5,7 +5,7 @@ import {
   updateQuantity,
   updateDeliveryOption,
 } from "../../data/cart.js";
-import { products, getProduct, loadProducts } from "../../data/products.js";
+import { getProduct, loadProducts } from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
 import {
   deliveryOptions,
@@ -16,17 +16,16 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 
+loadProducts(renderOrderSummary);
+
 export function renderOrderSummary() {
   updateCart();
 
   let cartSummaryHTML = "";
 
-  const happyBirth = "HELLO POOKIE";
-  console.log(happyBirth);
-
   cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-    console.log(productId);
+
     const matchingProduct = getProduct(productId);
     //console.log(matchingProduct);
     const deliveryOptionId = cartItem.deliveryOptionId;
@@ -228,5 +227,3 @@ export function renderOrderSummary() {
     });
   });
 }
-
-renderOrderSummary();

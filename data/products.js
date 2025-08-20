@@ -16,7 +16,7 @@ export function loadProducts(fun) {
     });
 
     fun();
-    console.log(JSON.parse(xhr.response));
+    //console.log(JSON.parse(xhr.response));
   });
   //then open a request, select action and the url
   xhr.open("GET", "https://supersimplebackend.dev/products");
@@ -34,7 +34,7 @@ export function getProduct(productId) {
   });
   return matchingProduct;
 }
-console.log(getProduct("3ebe75dc-64d2-4137-8860-1f5a963e534b"));
+//console.log(getProduct("3ebe75dc-64d2-4137-8860-1f5a963e534b"));
 
 class Product {
   constructor(productDetails) {
