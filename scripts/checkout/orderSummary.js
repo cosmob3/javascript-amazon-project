@@ -215,7 +215,7 @@ export function renderOrderSummary() {
 
     document.querySelector(
       ".js-checkout-header"
-    ).innerHTML = `Checkout (${totalQuantity})`;
+    ).innerHTML = `Checkout (${totalQuantity} items)`;
   }
 
   document.querySelectorAll(".js-delivery-option").forEach((element) => {

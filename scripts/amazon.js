@@ -95,7 +95,6 @@ function renderProductPage() {
     });
   });
 }
-renderProductPage();
 
 function updateCartQuantity() {
   const totalQuantity = calculateCartQuantity();

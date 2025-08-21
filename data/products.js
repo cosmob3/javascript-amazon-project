@@ -14,10 +14,14 @@ export function loadProducts(fun) {
 
       return new Product(productDetails);
     });
+    console.log("load products");
 
+    //Callback function - function that will be called on in the future
     fun();
+
     //console.log(JSON.parse(xhr.response));
   });
+
   //then open a request, select action and the url
   xhr.open("GET", "https://supersimplebackend.dev/products");
 
