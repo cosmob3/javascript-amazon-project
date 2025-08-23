@@ -5,6 +5,36 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
+async function loadPage() {
+  await loadProductsFetch();
+
+  await new Promise((resolve) => {
+    loadCart(() => {
+      resolve();
+    });
+  });
+
+  renderOrderSummary();
+  renderPaymentSummary();
+}
+loadPage();
+
+// ^This code is similar to^
+
+// \/ The code below \/
+
+/*
+function loadPage(){
+return new Promise((resolve) => {
+  console.log('load page');
+  resolve();
+  }).then(() => {
+    console.log('next step')
+  });
+}
+*/
+
+/*
 // Promise.all() lets us run multiple promises at the same time and waits for all of them to finish
 Promise.all([
   loadProductsFetch(),
@@ -18,6 +48,7 @@ Promise.all([
   renderPaymentSummary();
   renderOrderSummary();
 });
+*/
 
 /*
 // resolve lets us control when to go to the next step
