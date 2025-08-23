@@ -17,9 +17,13 @@ export function loadProductsFetch() {
       });
 
       console.log("load products");
+    })
+    .catch((error) => {
+      console.log("unexpected error. Try again later");
     });
   return promise;
 }
+
 /*
 loadProductsFetch().then(() => {
   console.log("Next step");
@@ -44,6 +48,10 @@ export function loadProducts(fun) {
     fun();
 
     //console.log(JSON.parse(xhr.response));
+  });
+
+  xhr.addEventListener("error", (error) => {
+    console.log("unexpected error. Please try again later");
   });
 
   //then open a request, select action and the url
